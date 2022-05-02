@@ -31,7 +31,7 @@ and proceed with forking this repo
 4. **Optional (+2 points)**
    * implement paging (See [Paging Library](https://developer.android.com/topic/libraries/architecture/paging)) so you can load all Pokémons gradually
 5. Submit changes into a **submit** branch and push it to your forked repo
-6. Create a merge request against _your_ master branch and assign it to _qtokar_
+6. Create a merge request against _your_ master branch and assign it to **xsevci11**, **ext-stefan.krajanec**, **xpanek1**, **xmasa**
 Your commit must pass Gitlab CI verification. To test this locally, run:
 ```
 ./gradlew check
