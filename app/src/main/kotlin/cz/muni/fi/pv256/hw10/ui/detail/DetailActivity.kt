@@ -37,6 +37,8 @@ class DetailActivity : AppCompatActivity() {
 
                     if (it.sprites.frontDefault != null) {
                         binding.img.load(it.sprites.frontDefault)
+                    } else {
+                        binding.img.load("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png")
                     }
 
                     supportActionBar?.apply {

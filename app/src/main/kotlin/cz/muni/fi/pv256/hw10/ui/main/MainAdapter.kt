@@ -28,11 +28,10 @@ class MainAdapter(private val empty: ViewSwitcher, private val onClick: (NamedAp
 
     class ViewHolder(itemBinding: ListItemBinding, val onClick: (NamedApiResource) -> Unit) :
         RecyclerView.ViewHolder(itemBinding.root) {
-        private val img = itemBinding.img
         private val text = itemBinding.title
 
         fun bind(namedApiResource: NamedApiResource) {
-            text.text = namedApiResource.name
+            text.text = namedApiResource.name.capitalize()
             itemView.setOnClickListener { onClick(namedApiResource) }
         }
     }
