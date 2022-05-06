@@ -11,7 +11,7 @@ import cz.muni.fi.pv256.hw10.data.PokemonSpritesConverters
 @Database(entities = [NamedApiResource::class], version = 3)
 @TypeConverters(PokemonSpritesConverters::class)
 abstract class PokemonDatabase : RoomDatabase() {
-    abstract fun pokemonDao() : PokemonDao
+    abstract fun pokemonDao(): PokemonDao
 
     companion object {
         fun getInstance(context: Context): PokemonDatabase {
