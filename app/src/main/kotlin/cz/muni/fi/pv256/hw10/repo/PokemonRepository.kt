@@ -15,16 +15,25 @@ class PokemonRepository(context: Context) {
     private val pokemonDao = PokemonDatabase.getInstance(context).pokemonDao()
 
     fun getPokemon(id: Int) = liveData {
-        val character = ApiService.apiService.getPokemon(id)
-        pokemonDao.insertAll(character)
-        emitSource(
-            pokemonDao.getById(id).map {
-                it
-            }
-        )
+        try {
+            val character = ApiService.apiService.getPokemon(id)
+            pokemonDao.insertAll(character)
+            emitSource(
+                pokemonDao.getById(id).map {
+                    it
+                }
+            )
+        } catch (e: Exception) {
+            Log.e(TAG, "Getting data from the Internet failed", e)
+            emitSource(
+                pokemonDao.getAll().map {
+                    Result.failure(e, it)
+                }
+            )
+        }
     }
 
-    fun getPokemons() = liveData {
+    fun getAllPokemon() = liveData {
         val disposable = emitSource(
             pokemonDao.getAll().map {
                 Result.loading(it)
@@ -32,7 +41,7 @@ class PokemonRepository(context: Context) {
         )
         try {
             // get fresh data from Internet
-            val characters = ApiService.apiService.getPokemons()
+            val characters = ApiService.apiService.getAllPokemon()
             disposable.dispose()
             pokemonDao.insertAll(*characters.toTypedArray())
             emitSource(

@@ -12,11 +12,11 @@ import kotlinx.parcelize.Parcelize
 @Entity
 data class Pokemon(
     @PrimaryKey val id: Int,
-    @ColumnInfo(name = "name") val name: String,
-    @ColumnInfo(name = "baseExperience") val baseExperience: Int,
-    @ColumnInfo(name = "height") val height: Int,
-    @ColumnInfo(name = "isDefault") val isDefault: Boolean,
-    @ColumnInfo(name = "order") val order: Int,
-    @ColumnInfo(name = "weight") val weight: Int,
-    @ColumnInfo(name = "sprites") val sprites: PokemonSprites,
+    @ColumnInfo(name = "name") val name: String = "unknown",
+    @ColumnInfo(name = "baseExperience") val baseExperience: Int = 0,
+    @ColumnInfo(name = "height") val height: Int = 0,
+    @ColumnInfo(name = "isDefault") val isDefault: Boolean = false,
+    @ColumnInfo(name = "order") val order: Int = 0,
+    @ColumnInfo(name = "weight") val weight: Int = 0,
+    @ColumnInfo(name = "sprites") val sprites: PokemonSprites = PokemonSprites(),
 ) : Parcelable

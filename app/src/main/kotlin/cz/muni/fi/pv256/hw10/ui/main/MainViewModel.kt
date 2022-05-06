@@ -11,7 +11,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val page: MutableLiveData<Int> = MutableLiveData()
     val items = page.switchMap {
-        repository.getPokemons()
+        repository.getAllPokemon()
     }
 
     fun setPage(pageNo: Int) {

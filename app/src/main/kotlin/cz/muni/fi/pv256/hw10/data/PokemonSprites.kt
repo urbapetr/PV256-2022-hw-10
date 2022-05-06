@@ -7,12 +7,12 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @JsonClass(generateAdapter = true)
 data class PokemonSprites(
-    val backDefault: String?,
-    val backShiny: String?,
-    val frontDefault: String?,
-    val frontShiny: String?,
-    val backFemale: String?,
-    val backShinyFemale: String?,
-    val frontFemale: String?,
-    val frontShinyFemale: String?,
+    val backDefault: String? = null,
+    val backShiny: String? = null,
+    val frontDefault: String? = null,
+    val frontShiny: String? = null,
+    val backFemale: String? = null,
+    val backShinyFemale: String? = null,
+    val frontFemale: String? = null,
+    val frontShinyFemale: String? = null,
 ) : Parcelable

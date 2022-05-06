@@ -9,7 +9,7 @@ import retrofit2.http.Path
 
 interface ApiService{
     @GET("pokemon?offset=0&limit=151")
-    suspend fun getPokemons(): List<Pokemon>
+    suspend fun getAllPokemon(): List<Pokemon>
 
     @GET("pokemon/{id}")
     suspend fun getPokemon(@Path("id") id: Int): Pokemon
@@ -29,4 +29,4 @@ interface ApiService{
     }
 }
 
-// TODO for implementation without paging, use https://pokeapi.co/api/v2/pokemon?offset=0&limit=151
+// for implementation without paging, use https://pokeapi.co/api/v2/pokemon?offset=0&limit=151
