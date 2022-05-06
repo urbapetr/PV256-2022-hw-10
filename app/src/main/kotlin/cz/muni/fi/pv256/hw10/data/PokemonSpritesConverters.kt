@@ -14,12 +14,13 @@ class PokemonSpritesConverters {
                 null,
                 null,
                 null,
-                null,)
+                null,
+            )
         }
     }
 
     @TypeConverter
     fun spritesToString(data: PokemonSprites?): String? {
-        return data?.frontDefault
+        return data?.front_default
     }
 }

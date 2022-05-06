@@ -35,8 +35,8 @@ class DetailActivity : AppCompatActivity() {
                     binding.order.text = String.format(getString(R.string.order), it.order)
                     binding.weight.text = String.format(getString(R.string.weight), it.weight)
 
-                    if (it.sprites.frontDefault != null) {
-                        binding.img.load(it.sprites.frontDefault)
+                    if (it.sprites.front_default != null) {
+                        binding.img.load(it.sprites.front_default)
                     } else {
                         binding.img.load("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png")
                     }

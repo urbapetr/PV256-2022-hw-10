@@ -8,7 +8,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface ApiService{
+interface ApiService {
     @GET("pokemon?offset=0&limit=151")
     suspend fun getNamedApiResourceList(): NamedApiResourceList
 
