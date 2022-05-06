@@ -1,5 +1,6 @@
 package cz.muni.fi.pv256.hw10.api
 
+import cz.muni.fi.pv256.hw10.data.NamedApiResourceList
 import cz.muni.fi.pv256.hw10.data.Pokemon
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -9,10 +10,10 @@ import retrofit2.http.Path
 
 interface ApiService{
     @GET("pokemon?offset=0&limit=151")
-    suspend fun getAllPokemon(): List<Pokemon>
+    suspend fun getNamedApiResourceList(): NamedApiResourceList
 
-    @GET("pokemon/{id}")
-    suspend fun getPokemon(@Path("id") id: Int): Pokemon
+    @GET("pokemon/{name}")
+    suspend fun getPokemon(@Path("name") name: String): Pokemon
 
     companion object {
 

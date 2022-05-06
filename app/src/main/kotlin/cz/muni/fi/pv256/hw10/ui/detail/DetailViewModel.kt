@@ -9,12 +9,12 @@ import cz.muni.fi.pv256.hw10.repo.PokemonRepository
 class DetailViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = PokemonRepository(application)
 
-    private val id: MutableLiveData<Int> = MutableLiveData()
-    val user = id.switchMap { id ->
-        repository.getPokemon(id)
+    private val name: MutableLiveData<String> = MutableLiveData()
+    val user = name.switchMap { name ->
+        repository.getPokemon(name)
     }
 
-    fun setCharacterId(characterId: Int) {
-        id.value = characterId
+    fun setPokemonName(pokemonName: String) {
+        name.value = pokemonName
     }
 }

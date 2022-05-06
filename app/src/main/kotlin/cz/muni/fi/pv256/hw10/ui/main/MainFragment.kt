@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import cz.muni.fi.pv256.hw10.R
+import cz.muni.fi.pv256.hw10.data.NamedApiResource
 import cz.muni.fi.pv256.hw10.data.Pokemon
 import cz.muni.fi.pv256.hw10.repo.Result
 import cz.muni.fi.pv256.hw10.databinding.MainFragmentBinding
@@ -44,7 +45,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // tod
-        adapter = MainAdapter(binding.switcher) { pokemon -> adapterOnClick(pokemon) }
+        adapter = MainAdapter(binding.switcher) { namedApiResource -> adapterOnClick(namedApiResource) }
         binding.recyclerView.apply {
             addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
             adapter = this@MainFragment.adapter
@@ -62,7 +63,7 @@ class MainFragment : Fragment() {
         binding.fab.setOnClickListener { fabOnClick() }
     }
 
-    private fun handleResult(result: Result<List<Pokemon>>) {
+    private fun handleResult(result: Result<List<NamedApiResource>>) {
         adapter.items = result.value ?: emptyList()
         when (result.state) {
             Result.State.LOADING ->
@@ -85,9 +86,9 @@ class MainFragment : Fragment() {
         _binding = null
     }
 
-    private fun adapterOnClick(pokemon: Pokemon) {
+    private fun adapterOnClick(namedApiResource: NamedApiResource) {
         val intent = Intent(context, DetailActivity()::class.java)
-        intent.putExtra(ITEM, pokemon.id)
+        intent.putExtra(ITEM, namedApiResource.name)
         startActivity(intent)
     }
 

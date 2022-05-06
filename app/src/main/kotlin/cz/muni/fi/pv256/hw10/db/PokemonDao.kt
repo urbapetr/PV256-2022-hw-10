@@ -1,22 +1,24 @@
 package cz.muni.fi.pv256.hw10.db
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
-import cz.muni.fi.pv256.hw10.data.Pokemon
+import cz.muni.fi.pv256.hw10.data.NamedApiResource
 
+@Dao
 interface PokemonDao {
-    @Query("SELECT * FROM pokemon")
-    fun getAll(): LiveData<List<Pokemon>>
+    @Query("SELECT * FROM namedapiresource")
+    fun getAll(): LiveData<List<NamedApiResource>>
 
-    @Query("SELECT * FROM pokemon WHERE id LIKE :id")
-    fun getById(id: Int): LiveData<Pokemon>
+    @Query("SELECT * FROM namedapiresource WHERE name LIKE :name")
+    fun getByName(name: String): LiveData<NamedApiResource>
 
     @Insert(onConflict = REPLACE)
-    suspend fun insertAll(vararg character: Pokemon)
+    suspend fun insertAll(namedApiResource: List<NamedApiResource>)
 
     @Delete
-    suspend fun delete(character: Pokemon)
+    suspend fun delete(namedApiResource: NamedApiResource)
 }

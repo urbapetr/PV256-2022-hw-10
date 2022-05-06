@@ -6,13 +6,14 @@ import android.widget.ViewSwitcher
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import cz.muni.fi.pv256.hw10.R
+import cz.muni.fi.pv256.hw10.data.NamedApiResource
 import cz.muni.fi.pv256.hw10.data.Pokemon
 import cz.muni.fi.pv256.hw10.databinding.ListItemBinding
 
-class MainAdapter(private val empty: ViewSwitcher, private val onClick: (Pokemon) -> Unit) :
+class MainAdapter(private val empty: ViewSwitcher, private val onClick: (NamedApiResource) -> Unit) :
     RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
-    var items = listOf<Pokemon>()
+    var items = listOf<NamedApiResource>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -25,16 +26,14 @@ class MainAdapter(private val empty: ViewSwitcher, private val onClick: (Pokemon
             }
         }
 
-    class ViewHolder(itemBinding: ListItemBinding, val onClick: (Pokemon) -> Unit) :
+    class ViewHolder(itemBinding: ListItemBinding, val onClick: (NamedApiResource) -> Unit) :
         RecyclerView.ViewHolder(itemBinding.root) {
         private val img = itemBinding.img
         private val text = itemBinding.title
 
-        fun bind(pokemon: Pokemon) {
-            // img.load(pokemon.image)
-            text.text = pokemon.name
-            // root view of the viewHolder
-            itemView.setOnClickListener { onClick(pokemon) }
+        fun bind(namedApiResource: NamedApiResource) {
+            text.text = namedApiResource.name
+            itemView.setOnClickListener { onClick(namedApiResource) }
         }
     }
 

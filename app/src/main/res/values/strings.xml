@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Pokédex (HW10)</string>
-    <string name="baseExperience">(%s)</string>
+    <string name="baseExperience">Exp: %s</string>
     <string name="height">Height: %s</string>
     <string name="weight">Weight: %s</string>
     <string name="isDefault">Is Default: %s</string>

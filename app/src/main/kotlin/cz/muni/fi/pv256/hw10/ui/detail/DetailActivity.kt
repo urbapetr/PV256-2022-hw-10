@@ -34,6 +34,7 @@ class DetailActivity : AppCompatActivity() {
                         String.format(getString(R.string.isDefault), it.isDefault)
                     binding.order.text = String.format(getString(R.string.order), it.order)
                     binding.weight.text = String.format(getString(R.string.weight), it.weight)
+
                     if (it.sprites.frontDefault != null) {
                         binding.img.load(it.sprites.frontDefault)
                     }
@@ -47,7 +48,7 @@ class DetailActivity : AppCompatActivity() {
         )
 
         intent.extras?.apply {
-            vm.setCharacterId(getInt(ITEM))
+            vm.setPokemonName(intent.getStringExtra(ITEM).toString())
         }
     }
 }
