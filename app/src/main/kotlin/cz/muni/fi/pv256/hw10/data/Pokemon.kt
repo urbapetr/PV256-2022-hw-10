@@ -18,4 +18,5 @@ data class Pokemon(
     val order: Int = 0,
     val weight: Int = 0,
     val sprites: PokemonSprites,
+    val url: String = "",
 ) : Parcelable

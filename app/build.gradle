@@ -11,7 +11,7 @@ android {
     buildToolsVersion "32.0.0"
 
     defaultConfig {
-        applicationId "cz.muni.fi.pv256.hw10514122"
+        applicationId "cz.muni.fi.pv256.hw10.514122"
         minSdkVersion 21
         targetSdkVersion 32
         versionCode 1
