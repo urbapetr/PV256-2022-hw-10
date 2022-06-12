@@ -6,6 +6,7 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.map
 import cz.muni.fi.pv256.hw10.api.ApiService
 import cz.muni.fi.pv256.hw10.data.NamedApiResource
+import cz.muni.fi.pv256.hw10.data.Pokemon
 import cz.muni.fi.pv256.hw10.db.PokemonDatabase
 
 class PokemonRepository(context: Context) {
@@ -17,7 +18,7 @@ class PokemonRepository(context: Context) {
 
     fun getPokemon(name: String) = liveData {
         try {
-            val pokemon = ApiService.apiService.getPokemon(name)
+            val pokemon: Pokemon = ApiService.apiService.getPokemon(name)
             pokemonDao.insertAll(listOf(NamedApiResource(name, "https://pokeapi.co/api/v2/pokemon/".plus(name))))
             emitSource(
                 pokemonDao.getByName(name).map {

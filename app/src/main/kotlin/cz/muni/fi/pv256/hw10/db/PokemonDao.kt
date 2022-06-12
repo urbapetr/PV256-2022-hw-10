@@ -14,7 +14,7 @@ interface PokemonDao {
     @Query("SELECT * FROM namedapiresource")
     fun getAll(): LiveData<List<NamedApiResource>>
 
-    @Query("SELECT * FROM namedapiresource WHERE name LIKE :name")
+    @Query("SELECT * FROM pokemon WHERE name LIKE :name")
     fun getByName(name: String): LiveData<Pokemon>
 
     @Insert(onConflict = REPLACE)
