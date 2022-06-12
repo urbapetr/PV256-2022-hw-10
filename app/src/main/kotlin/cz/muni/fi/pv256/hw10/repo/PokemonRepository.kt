@@ -26,11 +26,6 @@ class PokemonRepository(context: Context) {
             )
         } catch (e: Exception) {
             Log.e(TAG, "Getting pokemon from the Internet failed", e)
-            emitSource(
-                pokemonDao.getAll().map {
-                    Result.failure(e, it)
-                }
-            )
         }
     }
 

@@ -7,6 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import cz.muni.fi.pv256.hw10.data.NamedApiResource
+import cz.muni.fi.pv256.hw10.data.Pokemon
 
 @Dao
 interface PokemonDao {
@@ -14,7 +15,7 @@ interface PokemonDao {
     fun getAll(): LiveData<List<NamedApiResource>>
 
     @Query("SELECT * FROM namedapiresource WHERE name LIKE :name")
-    fun getByName(name: String): LiveData<NamedApiResource>
+    fun getByName(name: String): LiveData<Pokemon>
 
     @Insert(onConflict = REPLACE)
     suspend fun insertAll(namedApiResource: List<NamedApiResource>)

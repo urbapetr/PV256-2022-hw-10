@@ -22,29 +22,27 @@ class DetailActivity : AppCompatActivity() {
 
         val vm: DetailViewModel by viewModels()
 
-        vm.user.observe(
+        vm.pokemon.observe(
             this,
             {
-                if (it is Pokemon) {
-                    binding.name.text = it.name
-                    binding.baseExperience.text =
-                        String.format(getString(R.string.baseExperience), it.baseExperience)
-                    binding.height.text = String.format(getString(R.string.height), it.height)
-                    binding.isDefault.text =
-                        String.format(getString(R.string.isDefault), it.isDefault)
-                    binding.order.text = String.format(getString(R.string.order), it.order)
-                    binding.weight.text = String.format(getString(R.string.weight), it.weight)
+                binding.name.text = it.name
+                binding.baseExperience.text =
+                    String.format(getString(R.string.baseExperience), it.baseExperience)
+                binding.height.text = String.format(getString(R.string.height), it.height)
+                binding.isDefault.text =
+                    String.format(getString(R.string.isDefault), it.isDefault)
+                binding.order.text = String.format(getString(R.string.order), it.order)
+                binding.weight.text = String.format(getString(R.string.weight), it.weight)
 
-                    if (it.sprites.front_default != null) {
-                        binding.img.load(it.sprites.front_default)
-                    } else {
-                        binding.img.load("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png")
-                    }
+                if (it.sprites.front_default != null) {
+                    binding.img.load(it.sprites.front_default)
+                } else {
+                    binding.img.load("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png")
+                }
 
-                    supportActionBar?.apply {
-                        setDisplayShowTitleEnabled(true)
-                        title = it.name
-                    }
+                supportActionBar?.apply {
+                    setDisplayShowTitleEnabled(true)
+                    title = it.name
                 }
             }
         )
