@@ -10,7 +10,8 @@ import kotlinx.parcelize.Parcelize
 @Entity
 data class PokemonSprites(
     val back_default: String? = null,
-    val back_shiny: String? = null,
+    @Json(name = "back_default")
+    val backShiny: String? = null,
     val front_default: String? = null,
     val front_shiny: String? = null,
     val back_female: String? = null,
