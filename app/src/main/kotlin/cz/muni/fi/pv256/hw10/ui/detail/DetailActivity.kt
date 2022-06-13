@@ -1,7 +1,6 @@
 package cz.muni.fi.pv256.hw10.ui.detail
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
@@ -29,7 +28,7 @@ class DetailActivity : AppCompatActivity() {
             result?.let { pokemon ->
                 when (result.state) {
                     Result.State.SUCCESS -> {
-                        binding.name.text = pokemon.value?.name;
+                        binding.name.text = pokemon.value?.name
                         binding.baseExperience.text =
                             String.format(
                                 getString(R.string.baseExperience),

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import cz.muni.fi.pv256.hw10.R
 import cz.muni.fi.pv256.hw10.data.NamedApiResource
-import cz.muni.fi.pv256.hw10.data.Pokemon
 import cz.muni.fi.pv256.hw10.databinding.MainFragmentBinding
 import cz.muni.fi.pv256.hw10.repo.Result
 import cz.muni.fi.pv256.hw10.ui.detail.DetailActivity
