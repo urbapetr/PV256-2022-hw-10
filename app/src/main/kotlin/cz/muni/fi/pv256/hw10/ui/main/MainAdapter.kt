@@ -6,6 +6,7 @@ import android.widget.ViewSwitcher
 import androidx.recyclerview.widget.RecyclerView
 import cz.muni.fi.pv256.hw10.R
 import cz.muni.fi.pv256.hw10.data.NamedApiResource
+import cz.muni.fi.pv256.hw10.data.Pokemon
 import cz.muni.fi.pv256.hw10.databinding.ListItemBinding
 
 class MainAdapter(private val empty: ViewSwitcher, private val onClick: (NamedApiResource) -> Unit) :

@@ -11,15 +11,21 @@ import cz.muni.fi.pv256.hw10.data.Pokemon
 
 @Dao
 interface PokemonDao {
+    @Query("SELECT * FROM pokemon")
+    fun getAllPokemon(): LiveData<List<Pokemon>>
+
     @Query("SELECT * FROM namedapiresource")
-    fun getAll(): LiveData<List<NamedApiResource>>
+    fun getAllNames(): LiveData<List<NamedApiResource>>
 
     @Query("SELECT * FROM pokemon WHERE name LIKE :name")
     fun getByName(name: String): LiveData<Pokemon>
 
     @Insert(onConflict = REPLACE)
-    suspend fun insertAll(namedApiResource: List<NamedApiResource>)
+    suspend fun insertAllPokemon(pokemon: List<Pokemon>)
+
+    @Insert(onConflict = REPLACE)
+    suspend fun insertAllNamedApi(namedApiResource: List<NamedApiResource>)
 
     @Delete
-    suspend fun delete(namedApiResource: NamedApiResource)
+    suspend fun delete(pokemon: Pokemon)
 }

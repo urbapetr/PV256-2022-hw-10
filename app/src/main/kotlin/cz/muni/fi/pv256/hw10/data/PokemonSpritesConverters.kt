@@ -21,6 +21,6 @@ class PokemonSpritesConverters {
 
     @TypeConverter
     fun spritesToString(data: PokemonSprites?): String? {
-        return data?.front_default
+        return data?.frontDefault
     }
 }

@@ -6,10 +6,9 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
 @JsonClass(generateAdapter = true)
 @Entity
 data class NamedApiResource(
     @PrimaryKey val name: String,
     val url: String,
-) : Parcelable
+)
