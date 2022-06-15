@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Pokédex (HW10)</string>
+    <string name="baseExperience">Exp: %s</string>
+    <string name="height">Height: %s</string>
+    <string name="weight">Weight: %s</string>
+    <string name="isDefault">Is Default: %s</string>
+    <string name="order">Order: %s</string>
+    <string name="no_data">No Data</string>
+    <string name="cannot_load">Couldn\'t get fresh data:(</string>
 </resources>
